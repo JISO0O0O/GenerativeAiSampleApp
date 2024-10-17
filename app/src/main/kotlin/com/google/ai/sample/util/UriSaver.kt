@@ -1,4 +1,4 @@
-/*
+/* Jetpack compose에서 사용되는 컴포넌트 간 구성 변경 발생 시 Uri 목록 유지 관리
  * Copyright 2023 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,6 +23,8 @@ import androidx.compose.runtime.saveable.SaverScope
 /**
  * Saves a list of Uris across configuration changes
  */
+
+//UriSaver 클래스는 Saver 인터페이스 구현 : 컴포넌트의 상태 저장 및 복원 기능 제공
 class UriSaver : Saver<MutableList<Uri>, List<String>> {
     override fun restore(value: List<String>): MutableList<Uri> = value.map {
         Uri.parse(it)
